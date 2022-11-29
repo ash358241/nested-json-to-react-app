@@ -1,12 +1,7 @@
 import React from 'react';
-import generatedClass from '../utils/idGenerator';
-import styleGenerate from '../utils/styleGenerator';
 
-const Button = ({data}) => {
-    const {content, id, type} = data;
-    // const className = generatedClass()
-    // styleGenerate(className, style)
-    return <button className={`dorik-${type}-${id}`}dangerouslySetInnerHTML={{__html: content}} />
+const Button = ({data, className}) => {
+    return <button className={className}dangerouslySetInnerHTML={{__html: data.content}} />
 };
 
 export default Button;

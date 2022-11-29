@@ -1,5 +1,4 @@
 import ComponentTree from './components/ComponentTree';
-import Section from './components/Section';
 import data from './data.json'
 import { addStyle } from './utils/addStyle';
 import generateStyle from './utils/styleGenerator';
