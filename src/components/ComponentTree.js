@@ -14,13 +14,13 @@ const ComponentTree = ({ tree }) => {
                             {
                                 Array.isArray(content) ?
                                     (
-                                        <Component key={id} className={`dorik-${type}-${id}`}>
+                                        <Component key={id} className={`${type}-${id}`}>
                                             <ComponentTree key={id} tree={content} />
                                         </Component>
                                     )
                                     :
                                     (
-                                        <Component className={`dorik-${type}-${id}`} key={id} data={element} />
+                                        <Component className={`${type}-${id}`} key={id} data={element} />
 
                                     )
                             }

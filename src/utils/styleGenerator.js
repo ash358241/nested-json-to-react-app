@@ -6,25 +6,28 @@ export const styleArr = [];
 
 function generateStyle(data){
     data.map((item) => {
-        const className = `.dorik-${item.type}-${item.id}`;
+        const className = `.${item.type}-${item.id}`;
         const style = item.style ? objToCSS(item.style) : objToCSS(item.form.style);
         const fnc = stylesFnc[`${strToCapitalizeCase(item.name)}Style`];
-        styleArr.push(fnc(className, style));
+        const styles = styleArr.push(fnc(className, style));
 
         if (Array.isArray(item.content)) {
-             generateStyle(item.content);
+             return generateStyle(item.content);
         }
 
         if (item.form) {
             const fn = stylesFnc["ButtonStyle"];
-            let className = `.dorik-${item.form.submitButton.type}-${item.form.submitButton.id}`;
+            let className = `.${item.form.submitButton.type}-${item.form.submitButton.id}`;
             styleArr.push(fn(className, objToCSS(item.form.submitButton.style)));
             item.form.fields.items.map((i) => {
                 const fn = stylesFnc["InputStyle"];
-                className = `.dorik-${i.name}-${i.id}`;
-                styleArr.push(fn(className, objToCSS(item.form.fields.style)));
+                className = `.${i.name}-${i.id}`;
+                const styleItem = styleArr.push(fn(className, objToCSS(item.form.fields.style)));
+                return styleItem;
             });
         }
+
+        return styles  
     });
 
     return styleArr;

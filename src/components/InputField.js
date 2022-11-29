@@ -6,7 +6,7 @@ const InputField = ({data}) => {
     return(
         <>
         <label>{label}</label>
-            <input className={`dorik-${name}-${id}`} name={name} id={id} label={label} type="text" placeholder={placeholder} />
+            <input className={`${name}-${id}`} name={name} id={id} label={label} type="text" placeholder={placeholder} />
         </>
     )
 };
