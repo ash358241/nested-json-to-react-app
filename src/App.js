@@ -4,7 +4,7 @@ import { addStyle } from './utils/addStyle';
 import generateStyle from './utils/styleGenerator';
 
 function App() {
-  addStyle(generateStyle(data).join("").toString())
+  addStyle(generateStyle(data).join(''))
   return (
     <>
       <ComponentTree tree={data} />
